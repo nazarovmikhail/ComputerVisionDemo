@@ -22,5 +22,20 @@
 
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.javaopencvbook</groupId>
+            <artifactId>opencvjar</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javaopencvbook</groupId>
+            <artifactId>opencvjar-runtime</artifactId>
+            <version>3.0.0</version>
+            <classifier>natives-windows-x86</classifier>
+        </dependency>
+
+    </dependencies>
 
 </project>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,11 +11,40 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<Pane fx:controller="ru.nazarovmiha.project.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="btn_2"  layoutX="347.0" layoutY="254.0" mnemonicParsing="false" text="Just do it!" />
-      <ImageView fx:id="pic" fitHeight="216.0" fitWidth="364.0" layoutX="204.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btn_1" onAction="#onClickBtn" layoutX="35.0" layoutY="70.0" mnemonicParsing="false" text="Выбрать рисунок" />
-   </children>
-</Pane>
+<TabPane prefHeight="364.0" prefWidth="589.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.nazarovmiha.project.Controller">
+   <tabs>
+      <Tab text="Картинки">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="423.0">
+               <children>
+                  <Button fx:id="btn_1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn1" prefHeight="25.0" prefWidth="121.0" text="Выбрать рисунок" />
+                  <Button fx:id="btn_2" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn2" prefHeight="25.0" prefWidth="121.0" text="Очистить" />
+                  <ImageView fx:id="pic1" fitHeight="255.0" fitWidth="364.0" layoutX="28.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Видео">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btn_3" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Выбрать видео" />
+                  <Button fx:id="btn_4" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Очистить" />
+                  <ImageView fx:id="pic2" fitHeight="275.0" fitWidth="345.0" layoutX="24.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Вебкамера">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="423.0">
+               <children>
+                  <Button fx:id="btn_5" onAction="#onClickBtn5" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Включить камеру" />
+                  <Button fx:id="btn_6" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Отмена" />
+                  <ImageView fx:id="pic3" fitHeight="275.0" fitWidth="345.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

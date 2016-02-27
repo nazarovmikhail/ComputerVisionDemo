@@ -7,9 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.opencv.core.Core;
 
 public class Main extends Application {
 
@@ -59,10 +61,11 @@ public class Main extends Application {
             // Load
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("/view/view.fxml"));
-            Pane pictureView = (Pane)loader.load();
-
+            TabPane tabPane = (TabPane)loader.load();
             //Set myView into the center or root layout.
-            rootLayout.setCenter(pictureView);
+            rootLayout.setCenter(tabPane);
+
+            //rootLayout.getChildren().addAll(pictureView,tabPane);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -78,6 +81,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         launch(args);
     }
 }

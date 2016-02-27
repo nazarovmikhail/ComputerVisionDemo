@@ -1,18 +1,16 @@
 package ru.nazarovmiha.project;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
+import ru.nazarovmiha.project.utils.VideoDetection;
+import ru.nazarovmiha.project.utils.Utils;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import static ru.nazarovmiha.project.utils.Utils.FileChooseMethod;
 
 public class Controller {
+
+
 
     @FXML
     private Button btn_1;
@@ -21,34 +19,55 @@ public class Controller {
     private Button btn_2;
 
     @FXML
-    private ImageView pic;
+    private ImageView pic1;
 
     @FXML
-    public void onClickBtn(){
+    private Button btn_3;
 
-        FileChooser fileChooser = new FileChooser();
-        //Set extension filter
-        FileChooser.ExtensionFilter extFilterjpg =
-                new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
-        FileChooser.ExtensionFilter extFilterpng =
-                new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-        fileChooser.getExtensionFilters()
-                .addAll(extFilterjpg, extFilterpng);
+    @FXML
+    private Button btn_4;
 
+    @FXML
+    private ImageView pic2;
 
-        //Show open file dialog
-        File file = fileChooser.showOpenDialog(null);
-        try {
-            BufferedImage bufferedImage = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-            pic.setImage(image);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    @FXML
+    private Button btn_5;
+
+    @FXML
+    private Button btn_6;
+
+    @FXML
+    private ImageView pic3;
+
+    @FXML
+    public void onClickBtn1(){
+        FileChooseMethod(pic1);
+    }
+    @FXML
+    public void onClickBtn2(){
+    }
+    @FXML
+    public void onClickBtn3(){
 
     }
-   /* @FXML
-    public void onClickBtn2(){
+    @FXML
+    public void onClickBtn4(){
 
-    }*/
+    }
+
+    @FXML
+    VideoDetection my = new VideoDetection(pic3);
+
+    @FXML
+    public void onClickBtn5(){
+
+        my.init();
+        my.startCamera();
+    }
+
+    @FXML
+    public void onClickBtn6(){
+        my.stopCamera();
+
+    }
 }
