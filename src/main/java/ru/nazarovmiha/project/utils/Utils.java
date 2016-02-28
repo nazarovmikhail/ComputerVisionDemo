@@ -35,6 +35,7 @@ public class Utils {
             BufferedImage bufferedImage = ImageIO.read(file);
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             ImageDetection my = new ImageDetection(image);
+            my.init();
             picture.setImage(my.DetectionImage());
         } catch (IOException ex) {
             ex.printStackTrace();

@@ -10,8 +10,6 @@ import static ru.nazarovmiha.project.utils.Utils.FileChooseMethod;
 
 public class Controller {
 
-
-
     @FXML
     private Button btn_1;
 
@@ -45,6 +43,7 @@ public class Controller {
     }
     @FXML
     public void onClickBtn2(){
+        pic1.setImage(null);
     }
     @FXML
     public void onClickBtn3(){
@@ -55,12 +54,11 @@ public class Controller {
 
     }
 
-    @FXML
-    VideoDetection my = new VideoDetection(pic3);
+    VideoDetection my;
 
     @FXML
     public void onClickBtn5(){
-
+        my = new VideoDetection(pic3);
         my.init();
         my.startCamera();
     }
@@ -68,6 +66,5 @@ public class Controller {
     @FXML
     public void onClickBtn6(){
         my.stopCamera();
-
     }
 }

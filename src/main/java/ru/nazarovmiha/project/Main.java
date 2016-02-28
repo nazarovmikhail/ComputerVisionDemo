@@ -65,6 +65,12 @@ public class Main extends Application {
             //Set myView into the center or root layout.
             rootLayout.setCenter(tabPane);
 
+            // show the GUI
+            primaryStage.show();
+
+            // init the controller
+            Controller controller = loader.getController();
+
             //rootLayout.getChildren().addAll(pictureView,tabPane);
         }catch (IOException e){
             e.printStackTrace();

@@ -40,7 +40,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="423.0">
                <children>
                   <Button fx:id="btn_5" onAction="#onClickBtn5" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Включить камеру" />
-                  <Button fx:id="btn_6" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Отмена" />
+                  <Button fx:id="btn_6" onAction="#onClickBtn6" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Отмена" />
                   <ImageView fx:id="pic3" fitHeight="275.0" fitWidth="345.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
