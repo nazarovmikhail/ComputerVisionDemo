@@ -1,19 +1,21 @@
 package ru.nazarovmiha.project.utils;
 
+import com.sun.istack.internal.Nullable;
+import com.sun.javafx.geom.Vec3d;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritablePixelFormat;
+
 import org.opencv.core.*;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
-import org.opencv.objdetect.Objdetect;
 
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.nio.ByteBuffer;
+
+import static org.opencv.highgui.Highgui.imencode;
 
 /**
  * Created by Nazarov on 28.02.2016.
@@ -23,6 +25,8 @@ class BaseDetection {
     protected ImageView originalFrame;
     protected CascadeClassifier faceCascade;
     protected int absoluteFaceSize;
+    protected float time;
+
 
     protected void detectAndDisplay(Mat frame)
     {
@@ -38,18 +42,24 @@ class BaseDetection {
             int height = grayFrame.rows();
             if (Math.round(height * 0.2f) > 0)
             {
-                this.absoluteFaceSize = Math.round(height * 0.2f);
+                this.absoluteFaceSize = 20; //Math.round(height * 0.2f);
             }
         }
 
-        this.faceCascade.load("C:\\Users\\Nazarov\\IdeaProjects\\ComputerVisionDemo\\src\\main\\resources\\haarcascades\\haarcascade_frontalface_alt.xml");
-        this.faceCascade.detectMultiScale(grayFrame, faces, 1.1, 2, 0 | Objdetect.CASCADE_SCALE_IMAGE,
-                new Size(this.absoluteFaceSize, this.absoluteFaceSize), new Size());
+
+
+        this.faceCascade.load("C:\\Users\\Nazarov\\IdeaProjects\\ComputerVisionDemo\\src\\main\\resources\\haarcascades\\cascade.xml");
+        //this.faceCascade.detectMultiScale(grayFrame, faces, 1.1, 2,0|Objdetect.CASCADE_SCALE_IMAGE,
+        //        new Size(this.absoluteFaceSize, this.absoluteFaceSize), new Size());
+        long startTime = System.currentTimeMillis();
+
+        this.faceCascade.detectMultiScale(grayFrame, faces, 1.2, 3, 0,new Size(this.absoluteFaceSize, this.absoluteFaceSize), new Size());
+        long endTime = System.currentTimeMillis();
+        time = (float)((endTime - startTime))/1000f;
 
         Rect[] facesArray = faces.toArray();
         for (int i = 0; i < facesArray.length; i++)
-            Imgproc.rectangle(frame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0), 3);
-
+              Core.rectangle(frame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 0, 255, 255), 3);
     }
 
     protected Mat image2Mat(Image image) {
@@ -72,7 +82,7 @@ class BaseDetection {
 
         MatOfByte buffer = new MatOfByte();
 
-        Imgcodecs.imencode(".png", frame, buffer);
+        imencode(".png", frame, buffer);
 
         return new Image(new ByteArrayInputStream(buffer.toArray()));
     }

@@ -1,9 +1,7 @@
 package ru.nazarovmiha.project.utils;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.objdetect.CascadeClassifier;
 
 /**

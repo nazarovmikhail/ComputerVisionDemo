@@ -27,11 +27,6 @@ public class Main extends Application {
         initRootLayout();
 
         showMyView();
-
-        /*Parent root = FXMLLoader.load(getClass().getResource("view/view.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();*/
     }
 
     /**

@@ -20,6 +20,8 @@
                   <Button fx:id="btn_1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn1" prefHeight="25.0" prefWidth="121.0" text="Выбрать рисунок" />
                   <Button fx:id="btn_2" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn2" prefHeight="25.0" prefWidth="121.0" text="Очистить" />
                   <ImageView fx:id="pic1" fitHeight="255.0" fitWidth="364.0" layoutX="28.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="288.0" layoutY="18.0" text="Time:" />
+                  <Label fx:id="time_l" layoutX="335.0" layoutY="18.0" />
                </children>
             </AnchorPane>
          </content>
@@ -39,8 +41,8 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="423.0">
                <children>
-                  <Button fx:id="btn_5" onAction="#onClickBtn5" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Включить камеру" />
-                  <Button fx:id="btn_6" onAction="#onClickBtn6" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Отмена" />
+                  <Button fx:id="btn_5" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn5" prefHeight="25.0" prefWidth="121.0" text="Включить камеру" />
+                  <Button fx:id="btn_6" layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtn6" prefHeight="25.0" prefWidth="121.0" text="Отмена" />
                   <ImageView fx:id="pic3" fitHeight="275.0" fitWidth="345.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
